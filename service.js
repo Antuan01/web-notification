@@ -1,5 +1,3 @@
-// urlB64ToUint8Array is a magic function that will encode the base64 public key
-// to Array buffer which is needed by the subscription option
 const urlB64ToUint8Array = base64String => {
   const padding = "=".repeat((4 - (base64String.length % 4)) % 4);
   const base64 = (base64String + padding)
@@ -31,6 +29,7 @@ self.addEventListener("install", async () => {
       "BC4auUyTyASkAy-ir6di0RZirzu1dWkN-lu6z6S1Yd-rCVhyNgWykgcGxn33mZzui1RDt5s9sbefJszAUfxNXuQ"
     );
     const options = { applicationServerKey, userVisibleOnly: true };
+    await self.ready;
     const subscription = await self.registration.pushManager.subscribe(options);
     const response = await saveSubscription(subscription);
     console.log(response);

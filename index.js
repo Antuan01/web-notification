@@ -9,8 +9,10 @@ const check = () => {
 
 const registerServiceWorker = async () => {
   const swRegistration = await navigator.serviceWorker.register("service.js");
+  await navigator.serviceWorker.ready;
   return swRegistration;
 };
+
 
 const requestNotificationPermission = async () => {
   const permission = await window.Notification.requestPermission();
