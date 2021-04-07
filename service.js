@@ -12,7 +12,7 @@ const urlB64ToUint8Array = base64String => {
 };
 
 const saveSubscription = async subscription => {
-  const SERVER_URL = "http://localhost:4000/save-subscription";
+  const SERVER_URL = "https://staging.api.tubotones.com/api/save_subscription/1";
   const response = await fetch(SERVER_URL, {
     method: "post",
     headers: {
@@ -51,6 +51,7 @@ const showLocalNotification = (title, body, swRegistration) => {
   const options = {
     body,
     // here you can add more properties like icon, image, vibrate, etc.
+    // Opciones opcionales 
   }
   swRegistration.showNotification(title, options)
 }
