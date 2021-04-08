@@ -1,6 +1,6 @@
 'use strict';
 
-//necesitas user id para la linea 2 y un check en la linea 86
+//necesitas clientId para la linea 6 SERVER_URL  y un check en la linea 86
 // <3 Antuan01
 const applicationServerPublicKey = "BC4auUyTyASkAy-ir6di0RZirzu1dWkN-lu6z6S1Yd-rCVhyNgWykgcGxn33mZzui1RDt5s9sbefJszAUfxNXuQ";
 const SERVER_URL = "https://staging.api.tubotones.com/api/save_subscription/1";
