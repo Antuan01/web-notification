@@ -101,16 +101,8 @@ function unsubscribeUser() {
   });
 }
 
-function updateSubscriptionOnServer(subscription) {
-  
-  const response = await fetch(SERVER_URL, {                                    
-    method: "post",                                                             
-    headers: {                                                                  
-      "Content-Type": "application/json"                                        
-    },                                                                          
-    body: JSON.stringify(subscription)                                          
-  });                                                                           
 
+function updateSubscriptionOnServer(subscription) {
   const subscriptionJson = document.querySelector('.js-subscription-json');
   const subscriptionDetails =
     document.querySelector('.js-subscription-details');
@@ -118,6 +110,18 @@ function updateSubscriptionOnServer(subscription) {
   if (subscription) {
     subscriptionJson.textContent = JSON.stringify(subscription);
     subscriptionDetails.classList.remove('is-invisible');
+    console.log("yes")
+      
+      fetch(SERVER_URL, {
+        method: "post",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(subscription)
+      })
+      .then(res => console.log(res.json()))
+      .catch(err => console.log(err))
+
   } else {
     subscriptionDetails.classList.add('is-invisible');
   }
